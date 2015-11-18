@@ -1,18 +1,18 @@
-<!DOCTYPE html>
-<html lang="en-us">
+
+<html>
   <head>
     <script>
-      var test=1;
+      var test=0;
       var av=localStorage.getItem('test');
     </script>
   <title>Infinity</title>
-  <div id="div0">战斗力：0</div>
+  <div id="div0">通用点：0</div>
   </head>
   <body>
   <script>
     function save();
     localStorage.setItem('test', test);
-    window.div0.innerText=" 追猎者数量："+av;
+    window.div0.innerText="通用点："+av;
   </script>
   <input type="button" onclick="save()" value="+1 & save data"/>
   </body>
