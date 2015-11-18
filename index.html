@@ -1,20 +1,50 @@
 
-<html>
-  <head>
-    <script>
-      var test=0;
-      var av=parseInt(storage.getItem("a"));
-    </script>
-  <title>Infinity</title>
-  <div id="div0">通用点：0</div>
-  </head>
-  <body>
-  <script>
-    function save();
-    test=test+1;
-    localStorage.a = test;
-    window.div0.innerText="通用点："+av;
-  </script>
-  <input type="button" onclick="save()" value="+1 & save data"/>
-  </body>
-</html>
+<meta charset="utf-8">
+<link rel="stylesheet" href="http://infinityinfinity.github.io/stylesheets/button.css" type="text/css"/>
+<h1 id="count">1通用点</h1>
+<h1 id="heitie">1</h1>
+<script>
+if (typeof(element.onselectstart) != "undefined") {        
+    // IE下禁止元素被选取        
+    element.onselectstart = new Function("return false");        
+} else {
+    // firefox下禁止元素被选取的变通办法        
+    element.onmousedown = new Function("return false");        
+    element.onmouseup = new Function("return true");        
+}
+</script>
+<script>
+var x=1;
+var storage = window.localStorage;
+if (!storage.getItem("pageLoadCount")) storage.setItem("pageLoadCount",0);
+storage.pageLoadCount = parseInt(storage.getItem("pageLoadCount")) + x;//必须格式转换
+document.getElementById("count").innerHTML = storage.pageLoadCount+"通用点";
+showStorage();
+</script>
+<script>
+var storage = window.localStorage;
+if (!storage.getItem("heitie")) storage.setItem("heitie",0);
+heitie = parseInt(storage.getItem("heitie"));//必须格式转换
+document.getElementById("heitie").innerHTML = storage.heitie+"黑铁通用点";
+showStorage();
+</script>
+<script>
+var h=1;
+var ht=100;
+function qingchu() {
+if(parseInt(storage.getItem("pageLoadCount")) >= ht) {
+storage.pageLoadCount = storage.pageLoadCount-ht;
+heitie=heitie+h;
+storage.setItem("heitie",heitie);
+document.getElementById("count").innerHTML = storage.pageLoadCount +"通用点";
+document.getElementById("heitie").innerHTML = heitie+"黑铁通用点";
+}
+}
+</script>
+<h2>【商城区域】</h2>
+<a class="wsite-button" style="cursor:crosshair" onclick="shengji()" >
+<span class="wsite-button-inner">升级刷新数量</span>
+</a>
+<a class="wsite-button" style="cursor:crosshair" onclick="qingchu()" ></br>
+<span class="wsite-button-inner">清除你的通用点，升级为黑铁通用点</span>
+</a>
